@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">超级点击器 Core</string>
+    <string name="accessibility_desc">提供点击、滑动、手势执行能力，用于自动化脚本运行。本应用不会收集任何个人信息。</string>
+    <string name="step_click">单击</string>
+    <string name="step_multi_click">多点点击</string>
+    <string name="step_swipe">滑动</string>
+    <string name="step_wait">等待</string>
+    <string name="step_back">返回键</string>
+    <string name="step_home"> Home 键</string>
+    <string name="add_step">添加步骤</string>
+    <string name="start">开始执行</string>
+    <string name="stop">停止</string>
+    <string name="save_rule">保存规则</string>
+    <string name="load_rule">加载规则</string>
+    <string name="enable_float">悬浮控制台</string>
+    <string name="perm_accessibility">无障碍权限</string>
+    <string name="perm_overlay">悬浮窗权限</string>
+    <string name="hint_enable_accessibility">请先在设置中开启无障碍权限，否则无法执行点击</string>
+    <string name="pick_coord">点击屏幕拾取坐标</string>
+    <string name="loop_count">循环次数（0=无限）</string>
+    <string name="running">执行中</string>
+    <string name="idle">空闲</string>
+</resources>

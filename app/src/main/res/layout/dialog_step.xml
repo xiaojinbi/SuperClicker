@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="步骤类型"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:id="@+id/rowCoords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/etX"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="X 坐标"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etY"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Y 坐标"
+                android:inputType="number"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnPickCoord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拾取"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowEndCoords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/etX2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="终点 X"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etY2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="终点 Y"
+                android:inputType="number"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/etDuration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="时长(ms)"
+                android:inputType="number"
+                android:text="100" />
+
+            <EditText
+                android:id="@+id/etRepeat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="连击次数"
+                android:inputType="number"
+                android:text="1"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etWait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="等待时长(ms)"
+            android:inputType="number"
+            android:text="1000"
+            android:visibility="gone"
+            android:layout_marginTop="4dp" />
+
+        <EditText
+            android:id="@+id/etPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="多点坐标，格式 x,y;x,y;... 例: 300,500;600,700"
+            android:inputType="text"
+            android:visibility="gone"
+            android:layout_marginTop="4dp" />
+
+        <EditText
+            android:id="@+id/etNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="备注（可选）"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+</ScrollView>
