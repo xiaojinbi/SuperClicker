@@ -23,12 +23,30 @@ jobs:
         with:
           gradle-version: '8.7'
 
+      - name: Locate Gradle project
+        id: locate
+        shell: bash
+        run: |
+          echo "===== 仓库文件清单 ====="
+          find "$GITHUB_WORKSPACE" -maxdepth 3 -type f -not -path '*/.git/*' | sed "s|$GITHUB_WORKSPACE/||" | sort
+          echo "===== 搜索 Gradle 工程 ====="
+          FILE=$(find "$GITHUB_WORKSPACE" -name 'settings.gradle.kts' -o -name 'settings.gradle' | head -n 1)
+          if [ -z "$FILE" ]; then
+            echo "::error::仓库里找不到 settings.gradle.kts。请确认 SuperClicker 目录下的全部文件都已上传（含 app/、gradle/、build.gradle.kts、settings.gradle.kts），且没有多套一层文件夹。"
+            exit 1
+          fi
+          ROOT=$(dirname "$FILE")
+          REL=$(realpath --relative-to="$GITHUB_WORKSPACE" "$ROOT")
+          echo "工程根目录（相对）: $REL"
+          echo "rel_root=$REL" >> "$GITHUB_OUTPUT"
+
       - name: Build debug APK
+        working-directory: ${{ steps.locate.outputs.rel_root }}
         run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: SuperClicker-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ steps.locate.outputs.rel_root }}/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
